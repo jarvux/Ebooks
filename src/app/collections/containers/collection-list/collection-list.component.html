@@ -1,12 +1,32 @@
-<form (ngSubmit)="saveColl()" #collectionForm="ngForm">
-  <div class="form-group">
+<div>
+
+
+  <form (ngSubmit)="saveColl()" #collectionForm="ngForm">
+    <div class="form-group">
       <label for="name">Collection Name:</label>
       <input type="text" class="form-control" required [(ngModel)]="model.name" name="name" />
-      <div [hidden]="model.name.valid"  class="alert alert-danger">This field is required</div>
-  </div>
-  <div class="form-group">
+      <div [hidden]="model.name" class="alert alert-danger">This field is required</div>
+    </div>
+    <div class="form-group">
       <label for="description">Collection Description:</label>
-      <input type="text" class="form-control" [(ngModel)]="model.description" name="description"/>
-  </div>
-  <button type="submit" class="btn btn-success" [disabled]="!collectionForm.form.valid">Submit</button>
-</form>
+      <input type="text" class="form-control" [(ngModel)]="model.description" name="description" />
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!collectionForm.form.valid">Submit</button>
+  </form>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <th> Name </th>
+        <th> Description </th>
+        <th> Options </th>
+      </tr>
+      <tr *ngFor="let item of collection; let i = index ">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>---</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

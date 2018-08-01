@@ -1,9 +1,6 @@
 export class Collection {
-    constructor(
-        public name: string,
-        public description: string
-    )
-    {
-        
-    }
+    public name: string
+    public description: string
+
+    constructor() { }
 }

@@ -9,6 +9,7 @@ import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { routes  } from "./routes";
+import { StorageService } from "./services/storage.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { routes  } from "./routes";
       BooksDBService, {dataEncapsulation: false, delay: 3000}
     )
   ],
-  providers: [],
+  providers: [
+    StorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

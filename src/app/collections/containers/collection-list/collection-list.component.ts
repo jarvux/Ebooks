@@ -7,15 +7,22 @@ import {Collection} from './collection';
   styleUrls: ['./collection-list.component.css']
 })
 export class CollectionListComponent implements OnInit {
+  model: Collection;
+  collection: Collection[];
 
   constructor() { }
 
   ngOnInit() {
+    this.model = new Collection();
+    this.collection = this.getCollections();
+  }
+ 
+
+  getCollections(): Collection[]{
+    return [];
   }
 
-  model = new Collection("","");
-
   saveColl(){
-    debugger;
+    this.collection.push(this.model)
   }
 }
