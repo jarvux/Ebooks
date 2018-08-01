@@ -1,0 +1,48 @@
+header.top-header {
+    min-height: 50px;
+    background-color:var(--main-style-color);    
+    position: relative;    
+    z-index: 500;        
+}
+
+header.top-header h1 {
+    display: inline;
+    font-size: 1.4em;    
+}
+
+
+header.top-header .left-header .toggle-sidebar {
+    color: var(--main-title-color);
+    height: 50px;
+    padding: 15px 15px;
+    display: inline-block;
+}
+
+header.top-header .left-header .toggle-sidebar:hover {
+    background-color: rgba(0, 0, 0, .4);
+}
+
+header.top-header .left-header .toggle-sidebar > i {
+    display: inline-block;
+}
+
+
+
+header.top-header .right-header {       
+    height: 50px;
+    padding: 2px 0;   
+}
+
+header.top-header .right-header .top-form {    
+    padding: 5px;
+}
+
+header.top-header .right-header input.inputSearch {  
+    border-radius: 10px;  
+
+}
+
+header.top-header .right-header a.link-profile {    
+    padding: 15px;
+    font-size: 1.6em;
+}

@@ -1,0 +1,18 @@
+ul.main-menu {
+    list-style-type: none;
+    width: 100%;
+}
+
+ul.main-menu > li > a {
+    display: block;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--input-border-color);
+}
+
+ul.main-menu > li > a > i {
+    margin-right: 5px;
+}
+
+:host-context(.aside-close) span {
+    display: none;
+}

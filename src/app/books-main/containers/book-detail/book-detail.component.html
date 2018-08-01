@@ -1,0 +1,16 @@
+<div class="book" >                              
+    <h1>{{book.volumenInfo?.title}}</h1>
+    <div class="book-description"> 
+        <p>
+            {{book.volumeInfo?.publisher}}
+
+        </p>
+        <p>
+            {{book.volumeInfo?.publishedDate}}
+
+        </p>
+    </div>
+    <div class="book-image">
+        <img [src]="book.volumeInfo?.imageLinks.smallThumbnail">
+    </div>
+</div>

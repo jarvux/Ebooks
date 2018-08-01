@@ -1,0 +1,21 @@
+div.book h1 {
+    color: var(--main-style-color);
+    font-size: 2em;
+    font-weight: bold;
+}
+
+div.book-description {
+    float: left;
+    width: 40%;
+
+}
+
+div.book-image {
+    float: left;
+    width: 60%;
+    padding: 0 100px
+}
+
+div.book-image > img {
+    width: 300px;
+}
