@@ -1,8 +1,8 @@
 <div class="user-image">
-  <img [src]="user.urlImage">
+  <img [src]="user?.urlImage || 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'">
 </div>
 <div class="user-info">
-  <h3>{{user.name | uppercase}} {{user.lastname}}</h3>
-  <h4>{{user.email | emailPipe}}</h4>
+  <h3>{{user?.displayName}}</h3>
+  <h4>{{user?.email}}</h4>
   <span>{{today | date:"medium"}}</span>
 </div>
