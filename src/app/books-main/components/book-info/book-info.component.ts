@@ -6,10 +6,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./book-info.component.css']
 })
 export class BookInfoComponent implements OnInit {
-
+ 
   @Input() book: any;
   @Output() pushFavorite = new EventEmitter<any>();
-
+  @Input() collections:any;
   constructor() { }
 
   ngOnInit() {
@@ -19,4 +19,7 @@ export class BookInfoComponent implements OnInit {
     this.pushFavorite.emit(this.book);
   }
 
+  addCollection(){
+    let tmp = this.collections
+  }
 }

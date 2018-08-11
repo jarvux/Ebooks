@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Collection } from './collection';
 import { CollectionServiceService } from "../../services/collection-service.service"
 import { Observable } from '../../../../../node_modules/rxjs';
-
+import { AngularFireAuth } from "angularfire2/auth";
 
 @Component({
   selector: 'app-collection-list',
@@ -15,24 +15,32 @@ export class CollectionListComponent implements OnInit {
   collection: Array<any> = [];
   arrayCollections: Observable<any[]>;
 
-  constructor(private scol: CollectionServiceService) {
+  constructor(private scol: CollectionServiceService, private authFire: AngularFireAuth) {
     this.model = new Collection();
   }
 
   ngOnInit() {
-    this.model = new Collection();
-    this.getCollections();
+     this.getCollections()
   }
-
-  getCollections() {
-    this.scol.getCollections().valueChanges().subscribe((data)=>{
-      this.collection = data;
-    })
+  
+  getCollections(){
+    this.authFire.authState
+    .subscribe(
+      user => {          
+        this.scol.getCollections(user).valueChanges().subscribe((data) =>{
+          this.collection = data
+        })
+      }
+    );
   }
 
   saveColl() {
-    console.log(JSON.stringify(this.model))
-    this.scol.saveCollection(this.model);
-    this.getCollections();
+    this.authFire.authState.subscribe( user => {
+      this.scol.saveCollection(user, this.model)
+    })
+  }
+
+  SelectCollection(index){
+    debugger;
   }
 }

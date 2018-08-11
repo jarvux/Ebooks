@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from "angularfire2/database"
+import * as firebase from "firebase";
 
 @Injectable({
   providedIn: 'root'
@@ -7,14 +8,13 @@ import {AngularFireDatabase, AngularFireList} from "angularfire2/database"
 export class CollectionServiceService {
   constructor(private afdb: AngularFireDatabase) { }
 
-  public getCollections(): AngularFireList<any[]>
+  public getCollections(user : firebase.User): AngularFireList<any[]>
   {
-    console.log(this.afdb.list("collections"))
-    return this.afdb.list("/collections")
+        return this.afdb.list("collections/"+ user.uid)
   }
 
-  public saveCollection(data: any)
+  public saveCollection(user : firebase.User , data: any)
   {
-    this.afdb.list("/collections").push(data);
+    this.afdb.list("collections/"+ user.uid).push(data);
   }
 }

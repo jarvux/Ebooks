@@ -16,6 +16,9 @@ import { AppComponent } from './app.component';
 import { routes  } from "./routes";
 import { environment } from "../environments/environment";
 
+
+import {} from "@ngrx/store"
+
 @NgModule({
   declarations: [
     AppComponent    
