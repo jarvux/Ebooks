@@ -11,7 +11,9 @@ import { AuthModule } from "./auth/auth.module";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
-
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { reducers, metaReducer } from "./reducers";
 import { AppComponent } from './app.component';
 import { routes  } from "./routes";
 import { environment } from "../environments/environment";
@@ -38,7 +40,15 @@ import {} from "@ngrx/store"
     AuthModule,
     AngularFireModule.initializeApp(environment.firebase, 'bzg-books-app'),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    StoreModule.forRoot(reducers, {metaReducers: metaReducer}),
+    StoreDevtoolsModule.instrument(
+      {
+        name: 'Bzg Books App 1',
+        logOnly: environment.production,
+        maxAge: 30
+      }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

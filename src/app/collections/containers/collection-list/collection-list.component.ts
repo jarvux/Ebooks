@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Collection } from './collection';
 import { CollectionServiceService } from "../../services/collection-service.service"
-import { Observable } from '../../../../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 import { AngularFireAuth } from "angularfire2/auth";
 
 @Component({
