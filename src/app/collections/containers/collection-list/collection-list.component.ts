@@ -21,7 +21,7 @@ export class CollectionListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCollections()
+    this.getCollections()    
   }
 
   getCollections() {
@@ -42,9 +42,6 @@ export class CollectionListComponent implements OnInit {
     });
   }
 
-  SelectCollection(item) {
-    debugger;
-  }
 
   DeleteCollection(key) {
     this.authFire.authState.subscribe(user => {

@@ -12,7 +12,7 @@ export class CollectionServiceService {
   constructor(private afdb: AngularFireDatabase) { }
 
   public getCollections(user: firebase.User) {
-    return this.afdb.list("collections/" + user.uid)
+    return this.afdb.list<Collection>("collections/" + user.uid)
   }
 
   public saveCollection(user: firebase.User, data: any) {
