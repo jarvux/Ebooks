@@ -40,7 +40,11 @@ export class CollectionListComponent implements OnInit {
     })
   }
 
-  SelectCollection(index){
+  SelectCollection(item){
     debugger;
+  }
+
+  Delete(item){
+
   }
 }
