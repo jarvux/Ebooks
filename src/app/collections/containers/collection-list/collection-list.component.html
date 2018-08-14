@@ -1,5 +1,4 @@
 <div>
-
   <form>
     <div class="form-row">
         <div class="col-5">
@@ -26,8 +25,8 @@
       <tr *ngFor="let item of collection"  class="card-body">
         <td >{{item.name}}</td>
         <td>{{item.description}}</td>
-        <td>
-            <button type="button" class="btn btn-outline-success" (click)="SelectCollection(item)">Entrar</button>
+        <td>            
+            <button type="button" class="btn btn-outline-success"  [routerLink]="['../books/', item.key]">Entrar</button>
             <button type="button" class="btn btn-outline-danger" (click)="DeleteCollection(item.key)">Eliminar</button>
         </td>
       </tr>

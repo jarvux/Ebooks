@@ -27,7 +27,7 @@
       <div class="col-6">
           <select class="btn btn-secondary dropdown-toggle" [(ngModel)]="collection" (change)="addBookToCollection(book)">
               <option value="0">Collections..</option>
-              <option *ngFor="let item of collections" [ngValue]="item">
+              <option *ngFor="let item of collections" [ngValue]="item" >
                   {{item.name}}
               </option>
           </select>

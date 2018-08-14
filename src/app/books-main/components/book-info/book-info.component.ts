@@ -14,8 +14,8 @@ export class BookInfoComponent implements OnInit {
 
   @Input() book: any;
   @Output() pushFavorite = new EventEmitter<any>();
-  collections: Array<any> = [];
-  collection: any;
+  collections: Array<Collection> = [];
+  collection: Collection;
 
   constructor(private scol: CollectionServiceService, private authFire: AngularFireAuth) {
     this.getCollections()
@@ -31,7 +31,7 @@ export class BookInfoComponent implements OnInit {
         .snapshotChanges()
         .pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))))
         .subscribe((data) => {
-            this.collections = data;
+            this.collections = data as Collection[];
           });
       });
   } 
@@ -41,20 +41,11 @@ export class BookInfoComponent implements OnInit {
   }
 
   addBookToCollection(book) {
-    let a = 
-    this.authFire.authState
+      this.authFire.authState
       .subscribe(
         user => {
-          let data = {
-            key : this.collection.key,
-            name: this.collection.name,
-            description : "desc",
-            books: []
-          }
-          data.books.push(book)
-          this.scol.addBookToCollection(user, this.collection.key, data);
+          this.scol.addBookToCollection(user, this.collection.key, book);
         }
-      );
-      
+      );      
   }
 }

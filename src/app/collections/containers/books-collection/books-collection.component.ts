@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { AngularFireAuth } from "angularfire2/auth";
 import { map } from 'rxjs/operators';
 import { Collection } from '../collection-list/collection';
+import { Books } from "../collection-list/Books"
+import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: 'app-books-collection',
@@ -12,15 +14,31 @@ import { Collection } from '../collection-list/collection';
 })
 export class BooksCollectionComponent implements OnInit {
 
-  model: Collection;
-  collection: any
-  arrayCollections: Observable<any[]>;
+  books: any
 
-  constructor(private scol: CollectionServiceService, private authFire: AngularFireAuth) {
-    this.model = new Collection();
+  constructor(
+    private scol: CollectionServiceService,
+    private authFire: AngularFireAuth,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    let id: string;
+    
+    this.route.params.subscribe((params: Params) => {
+      id = params.id;
+
+      this.authFire.authState
+        .subscribe(user => {
+          this.scol.booksFromCollection(user, id)
+            .snapshotChanges()
+            .pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))))
+            .subscribe((data) => {
+              this.books = data as Books[];
+            });
+        });
+    });
+
   }
 
 }
