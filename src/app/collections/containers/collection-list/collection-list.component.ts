@@ -42,11 +42,9 @@ export class CollectionListComponent implements OnInit {
     });
   }
 
-
   DeleteCollection(key) {
     this.authFire.authState.subscribe(user => {
       this.scol.deleteCollection(user, key);
     });
   }
-
 }

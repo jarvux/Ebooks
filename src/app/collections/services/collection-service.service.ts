@@ -30,6 +30,7 @@ export class CollectionServiceService {
 
   public booksFromCollection(user: firebase.User, collectionId: string) {
     var books = this.afdb.list<Books>("collections/" + user.uid + "/" + collectionId + "/books");
+   // var collection = this.afdb.list<Collection>("collections/" + user.uid + "/" + collectionId);
     return books;
   }
 }

@@ -1,5 +1,5 @@
 export class Books {
-    public id: string
+    public key: string
 
     constructor() { }
 }
