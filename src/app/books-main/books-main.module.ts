@@ -6,6 +6,8 @@ import { BookDetailComponent } from './containers/book-detail';
 import { BookInfoComponent } from './components/book-info/book-info.component';
 import { routes } from "./routes.books-main";
 
+import { FormsModule } from '@angular/forms';
+
 const COMPONENTS = [
   BooksListMainComponent,
   BookDetailComponent,
@@ -15,7 +17,8 @@ const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule
   ],
   declarations: COMPONENTS
 })

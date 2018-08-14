@@ -25,14 +25,12 @@
           <i class="fa fa-heart"></i> Favorito</button>
       </div>
       <div class="col-6">
-
-          <select (change)="addCollection($event.target.value)">
+          <select class="btn btn-secondary dropdown-toggle" [(ngModel)]="collection" (change)="addBookToCollection($event, book)">
               <option value="0">Collections..</option>
-              <option *ngFor="let item of collections;" value={{item}}>
+              <option *ngFor="let item of collections;" [ngValue]="item">
                   {{item.name}}
               </option>
           </select>
-
       </div>
     </div>
   </div>
