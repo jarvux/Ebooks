@@ -3,6 +3,7 @@ import { Collection } from './collection';
 import { CollectionServiceService } from "../../services/collection-service.service"
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from "angularfire2/auth";
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-collection-list',
@@ -12,7 +13,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 export class CollectionListComponent implements OnInit {
 
   model: Collection;
-  collection: Array<any> = [];
+  collection: any
   arrayCollections: Observable<any[]>;
 
   constructor(private scol: CollectionServiceService, private authFire: AngularFireAuth) {
@@ -20,31 +21,35 @@ export class CollectionListComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.getCollections()
+    this.getCollections()
   }
-  
-  getCollections(){
+
+  getCollections() {
     this.authFire.authState
-    .subscribe(
-      user => {          
-        this.scol.getCollections(user).valueChanges().subscribe((data) =>{
-          this.collection = data
-        })
-      }
-    );
-  }
+      .subscribe(user => {
+        this.scol.getCollections(user)
+        .snapshotChanges()
+        .pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))))
+        .subscribe((data) => {
+            this.collection = data;
+          });
+      });
+  } 
 
   saveColl() {
-    this.authFire.authState.subscribe( user => {
-      this.scol.saveCollection(user, this.model)
-    })
+    this.authFire.authState.subscribe(user => {
+      this.scol.saveCollection(user, this.model);
+    });
   }
 
-  SelectCollection(item){
+  SelectCollection(item) {
     debugger;
   }
 
-  Delete(item){
-
+  DeleteCollection(key) {
+    this.authFire.authState.subscribe(user => {
+      this.scol.deleteCollection(user, key);
+    });
   }
+
 }

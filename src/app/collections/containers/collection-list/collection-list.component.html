@@ -23,12 +23,12 @@
           </tr>
         </thead>
     <tbody>
-      <tr *ngFor="let item of collection; let i = index "  class="card-body">
+      <tr *ngFor="let item of collection"  class="card-body">
         <td >{{item.name}}</td>
         <td>{{item.description}}</td>
         <td>
             <button type="button" class="btn btn-outline-success" (click)="SelectCollection(item)">Entrar</button>
-            <button type="button" class="btn btn-outline-danger" (click)="Delete(item)">Eliminar</button>
+            <button type="button" class="btn btn-outline-danger" (click)="DeleteCollection(item.key)">Eliminar</button>
         </td>
       </tr>
     </tbody>
