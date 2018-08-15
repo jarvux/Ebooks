@@ -23,7 +23,7 @@ export class BookSuggestComponent implements OnInit {
       this.booksService.getBook(id)
       .subscribe(
         (book: any) => {
-          this.booksService.searchBooks(book.Subject);
+          this.booksService.searchBooks(book.volumeInfo.publisher);
         }
       )
     });
