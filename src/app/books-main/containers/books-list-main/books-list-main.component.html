@@ -1,7 +1,7 @@
 <section class="container content" >        
   <div class="row">
-    <div *ngFor="let book of booksList?.items" class="col-12 col-sm-12 col-md-6 col-lg-3">
-      <div class="card">
+    <div *ngFor="let book of booksList?.items" class="align col-12 col-sm-12 col-md-6 col-lg-3">
+      <div class="card cardi">
           <div class="card-header">
               {{book.volumeInfo.title}}
           </div>
@@ -13,8 +13,11 @@
               <p class="card-text">
                   {{book.volumeInfo.publishedDate}}
               </p>
-              <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../detail/', book.id]">Ver Detalle</a>
+              
           </div>
+          <div class ="card-footer justify-content-center">
+                <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../detail/', book.id]">Ver Detalle</a>
+        </div>
       </div>                        
   </div>
   </div>

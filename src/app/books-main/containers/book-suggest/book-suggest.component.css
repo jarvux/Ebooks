@@ -1,0 +1,8 @@
+.align{
+    display: flex;
+    margin-bottom: 15px
+}
+
+.cardi{
+    flex: 1
+}

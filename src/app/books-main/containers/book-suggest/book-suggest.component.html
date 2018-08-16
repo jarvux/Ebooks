@@ -2,17 +2,20 @@
     <div class="row border rounded">
         <div class="col-12">
             <p class="h4">
-                Suggested books
+                Libros Sugeridos
             </p>
         </div>
-        <div *ngFor="let book of booksList?.items" class="col-12 col-sm-12 col-md-6 col-lg-2">
-            <div class="card">
+        <div *ngFor="let book of booksList?.items" class="align col-12 col-sm-12 col-md-4 col-lg-3">
+            <div class="card cardi">
                 <img class="card-img-top" [src]="book.volumeInfo.imageLinks?.thumbnail">
                 <div class="card-body">
                     <p class="card-text">
                         {{book.volumeInfo.publishedDate}}
                     </p>
-                    <a class="col-12 col-md-auto col-lg-auto btn btn-primary" [routerLink]="['../', book.id]">Ver Detalle</a>
+
+                </div>
+                <div class ="card-footer justify-content-center">
+                        <a class="btn btn-primary" [routerLink]="['../', book.id]">Ver Detalle</a>
                 </div>
             </div>
         </div>
