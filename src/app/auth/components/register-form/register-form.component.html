@@ -1,0 +1,33 @@
+<form (ngSubmit)="submit()"  id="msform">
+  <section class="formwin">
+  <div>
+      <h2 class="fs-title">Create your account</h2>
+    <div class="row">
+    <div class="">
+   <input type="text" class="form-control" placeholder="Name"  [(ngModel)]="login.name" required #nombre="ngModel" name="Name" >
+  </div>
+    </div>
+  </div>
+  <div class="row">
+  <div class="" class="form-label-group">
+    <input type="email" class="form-control" placeholder="Email" [(ngModel)]="login.email" required #email="ngModel" name="email">
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger" role="alert" >
+      Email Requerido
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="" >
+    <input type="password" class="form-control" placeholder="Password" [(ngModel)]="login.password" required #password="ngModel" name="password">
+    <div [hidden]="password.valid || password.pristine" class="alert alert-danger" role="alert" >
+      Password Requerido
+    </div>
+  </div>
+</div>
+
+  <div class="">
+      <button [disabled]="!loginForm.form.valid" type="submit" class="next action-button" (click)="save()" [routerLink]= "['../login']" >Save</button>
+    </div>
+  </section>
+</form>

@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+
+
+
+#msform .action-button {
+	width: 100px;
+	background: #539cfc;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: left;
+}
