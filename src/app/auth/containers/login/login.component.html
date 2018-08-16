@@ -1,10 +1,11 @@
 <div class="login-box">
   <div class="login-logo">
-    <a href=""><b>Bzg Books</b>APP</a>
+    <a href="">
+      <b>Bzg Books</b>APP</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <div class="login-box-msg">Sign into start your session</div>
 
     <app-login-form (submitted)="auth($event)" (signByGoogle)="signWithGoogle($event)"></app-login-form>
 
